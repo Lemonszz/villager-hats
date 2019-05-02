@@ -23,35 +23,6 @@ public class PlayerRenderMixin extends LivingEntityRenderer<AbstractClientPlayer
 	@Inject(at = @At("RETURN"), method = "<init>(Lnet/minecraft/client/render/entity/EntityRenderDispatcher;Z)V")
 	public void onConstruct(EntityRenderDispatcher dispatcher, boolean smallarms, CallbackInfo info)
 	{
-		System.out.println("RENDERING LOLOLOL");
-		System.out.println("RENDERING LOLOLOL");
-		System.out.println("RENDERING LOLOLOL");
-		System.out.println("RENDERING LOLOLOL");
-		System.out.println("RENDERING LOLOLOL");
-		System.out.println("RENDERING LOLOLOL");
-		System.out.println("RENDERING LOLOLOL");
-		System.out.println("RENDERING LOLOLOL");
-		System.out.println("RENDERING LOLOLOL");
-		System.out.println("RENDERING LOLOLOL");
-		System.out.println("RENDERING LOLOLOL");
-		System.out.println("RENDERING LOLOLOL");
-		System.out.println("RENDERING LOLOLOL");
-		System.out.println("RENDERING LOLOLOL");
-		System.out.println("RENDERING LOLOLOL");
-		System.out.println("RENDERING LOLOLOL");
-		System.out.println("RENDERING LOLOLOL");
-		System.out.println("RENDERING LOLOLOL");
-		System.out.println("RENDERING LOLOLOL");
-		System.out.println("RENDERING LOLOLOL");
-		System.out.println("RENDERING LOLOLOL");
-		System.out.println("RENDERING LOLOLOL");
-		System.out.println("RENDERING LOLOLOL");
-		System.out.println("RENDERING LOLOLOL");
-		System.out.println("RENDERING LOLOLOL");
-		System.out.println("RENDERING LOLOLOL");
-		System.out.println("RENDERING LOLOLOL");
-		System.out.println("RENDERING LOLOLOL");
-
 		this.addFeature(new PlayerVillagerHatRenderLayer<>(this));
 	}
 
