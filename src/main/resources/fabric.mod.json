@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "id": "villagerhats",
+  "version": "${version}",
+
+  "name": "Villager Hats",
+  "description": "Adds wearable villager hats! Hot Damn!",
+  "authors": [
+    "Me!"
+  ],
+  "contact": {
+    "homepage": "",
+    "sources": ""
+  },
+
+  "license": "MIT",
+  "icon": "assets/villagerhats/icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "party.lemons.villagerhats.VillagerHats",
+      "party.lemons.villagerhats.init.HatItems"
+    ]
+  },
+  "mixins": [
+    "villagerhats.mixins.json"
+  ],
+
+  "requires": {
+    "fabricloader": ">=0.4.0",
+    "fabric": "*"
+  },
+  "suggests": {
+    "flamingo": "*"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "F#"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:leather"
+    },
+    "F": {
+      "item": "minecraft:book"
+    }
+  },
+  "result": {
+    "item": "villagerhats:librarian_hat",
+    "count": 1
+  }
+}

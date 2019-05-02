@@ -1,0 +1,13 @@
+{
+  "required": true,
+  "package": "party.lemons.villagerhats.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [
+  ],
+  "client": [
+    "PlayerRenderMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

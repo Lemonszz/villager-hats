@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " # ",
+    "#F#"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:leather"
+    },
+    "F": {
+      "item": "minecraft:salmon"
+    }
+  },
+  "result": {
+    "item": "villagerhats:fisherman_hat",
+    "count": 1
+  }
+}
