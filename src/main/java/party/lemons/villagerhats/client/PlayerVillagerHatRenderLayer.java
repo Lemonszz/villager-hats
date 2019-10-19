@@ -35,11 +35,7 @@ public class PlayerVillagerHatRenderLayer<T extends LivingEntity, M extends Enti
 				GlStateManager.translated(0, 0.250D, 0);
 			}
 
-			VillagerResemblingModel<T> hatModel = new VillagerResemblingModel<>(0);
-			hatModel.cuboidList.forEach(c -> c.visible = false);
-
-			hatModel.setHatVisible(true);
-			//((class_3884)hatModel).method_17150(true);
+			VillagerHatModel<T> hatModel = new VillagerHatModel<>(0);
 
 			this.bindTexture(this.findTexture("profession", Registry.VILLAGER_PROFESSION.getId(hat.getProfession())));
 

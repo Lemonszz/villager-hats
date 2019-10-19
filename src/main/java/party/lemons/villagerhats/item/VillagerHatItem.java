@@ -11,7 +11,7 @@ public class VillagerHatItem extends ArmorItem
 
 	public VillagerHatItem(VillagerProfession profession)
 	{
-		super(VillagerArmorMaterial.INSTANCE, EquipmentSlot.HEAD, new Settings().itemGroup(ItemGroup.COMBAT));
+		super(VillagerArmorMaterial.INSTANCE, EquipmentSlot.HEAD, new Settings().group(ItemGroup.COMBAT));
 
 		this.profession = profession;
 	}

@@ -10,15 +10,15 @@ import party.lemons.villagerhats.item.VillagerHatItem;
 
 public class HatItems implements ModInitializer
 {
-	public static final Item FARMER_HAT = registerItem(new VillagerHatItem(VillagerProfession.FARMER), "farmer_hat");
-	public static final Item ARMORER_HAT = registerItem(new VillagerHatItem(VillagerProfession.ARMORER), "armorer_hat");
-	public static final Item BUTCHER_HAT = registerItem(new VillagerHatItem(VillagerProfession.BUTCHER), "butcher_hat");
-	public static final Item CARTOGRAPHER_HAT = registerItem(new VillagerHatItem(VillagerProfession.CARTOGRAPHER), "cartographer_hat");
-	public static final Item FISHERMAN_HAT = registerItem(new VillagerHatItem(VillagerProfession.FISHERMAN), "fisherman_hat");
-	public static final Item FLETCHER_HAT = registerItem(new VillagerHatItem(VillagerProfession.FLETCHER), "fletcher_hat");
-	public static final Item LIBRARIAN_HAT = registerItem(new VillagerHatItem(VillagerProfession.LIBRARIAN), "librarian_hat");
-	public static final Item SHEPHERD_HAT = registerItem(new VillagerHatItem(VillagerProfession.SHEPHERD), "shepherd_hat");
-	public static final Item WEAPONSMITH_HAT = registerItem(new VillagerHatItem(VillagerProfession.WEAPONSMITH), "weaponsmith_hat");
+	public static Item FARMER_HAT;
+	public static Item ARMORER_HAT;
+	public static Item BUTCHER_HAT;
+	public static Item CARTOGRAPHER_HAT;
+	public static Item FISHERMAN_HAT;
+	public static Item FLETCHER_HAT;
+	public static Item LIBRARIAN_HAT;
+	public static Item SHEPHERD_HAT;
+	public static Item WEAPONSMITH_HAT;
 
 	public static Item registerItem(Item item, String name)
 	{
@@ -29,6 +29,14 @@ public class HatItems implements ModInitializer
 	@Override
 	public void onInitialize()
 	{
-
+		FARMER_HAT = registerItem(new VillagerHatItem(VillagerProfession.FARMER), "farmer_hat");
+		ARMORER_HAT = registerItem(new VillagerHatItem(VillagerProfession.ARMORER), "armorer_hat");
+		BUTCHER_HAT = registerItem(new VillagerHatItem(VillagerProfession.BUTCHER), "butcher_hat");
+		CARTOGRAPHER_HAT = registerItem(new VillagerHatItem(VillagerProfession.CARTOGRAPHER), "cartographer_hat");
+		FISHERMAN_HAT = registerItem(new VillagerHatItem(VillagerProfession.FISHERMAN), "fisherman_hat");
+		FLETCHER_HAT = registerItem(new VillagerHatItem(VillagerProfession.FLETCHER), "fletcher_hat");
+		LIBRARIAN_HAT = registerItem(new VillagerHatItem(VillagerProfession.LIBRARIAN), "librarian_hat");
+		SHEPHERD_HAT = registerItem(new VillagerHatItem(VillagerProfession.SHEPHERD), "shepherd_hat");
+		WEAPONSMITH_HAT = registerItem(new VillagerHatItem(VillagerProfession.WEAPONSMITH), "weaponsmith_hat");
 	}
 }
