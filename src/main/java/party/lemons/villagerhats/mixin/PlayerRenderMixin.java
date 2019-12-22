@@ -13,22 +13,16 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import party.lemons.villagerhats.client.PlayerVillagerHatRenderLayer;
 
 @Mixin(PlayerEntityRenderer.class)
-public class PlayerRenderMixin extends LivingEntityRenderer<AbstractClientPlayerEntity, PlayerEntityModel<AbstractClientPlayerEntity>>
+public abstract class PlayerRenderMixin extends LivingEntityRenderer<AbstractClientPlayerEntity, PlayerEntityModel<AbstractClientPlayerEntity>>
 {
-	public PlayerRenderMixin(EntityRenderDispatcher entityRenderDispatcher_1, PlayerEntityModel<AbstractClientPlayerEntity> entityModel_1, float float_1)
+	public PlayerRenderMixin(EntityRenderDispatcher entityRenderDispatcher, PlayerEntityModel<AbstractClientPlayerEntity> model, float shadow)
 	{
-		super(entityRenderDispatcher_1, entityModel_1, float_1);
+		super(entityRenderDispatcher, model, shadow);
 	}
 
 	@Inject(at = @At("RETURN"), method = "<init>(Lnet/minecraft/client/render/entity/EntityRenderDispatcher;Z)V")
 	public void onConstruct(EntityRenderDispatcher dispatcher, boolean smallarms, CallbackInfo info)
 	{
 		this.addFeature(new PlayerVillagerHatRenderLayer<>(this));
-	}
-
-	@Override
-	protected Identifier getTexture(AbstractClientPlayerEntity var1)
-	{
-		return null;
 	}
 }

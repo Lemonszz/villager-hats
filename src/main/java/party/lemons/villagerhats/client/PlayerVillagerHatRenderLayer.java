@@ -1,10 +1,14 @@
 package party.lemons.villagerhats.client;
 
-import com.mojang.blaze3d.platform.GlStateManager;
+import com.mojang.blaze3d.systems.RenderSystem;
+import net.minecraft.client.render.OverlayTexture;
+import net.minecraft.client.render.VertexConsumer;
+import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.entity.feature.FeatureRenderer;
 import net.minecraft.client.render.entity.feature.FeatureRendererContext;
 import net.minecraft.client.render.entity.model.EntityModel;
-import net.minecraft.client.render.entity.model.VillagerResemblingModel;
+import net.minecraft.client.render.entity.model.ModelWithHead;
+import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.util.Identifier;
@@ -18,36 +22,39 @@ public class PlayerVillagerHatRenderLayer<T extends LivingEntity, M extends Enti
 		super(render);
 	}
 
+	@Override
+	public void render(MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, T entity, float limbAngle, float limbDistance, float tickDelta, float customAngle, float headYaw, float headPitch)
+	{
+		if(!entity.getEquippedStack(EquipmentSlot.HEAD).isEmpty() && entity.getEquippedStack(EquipmentSlot.HEAD).getItem() instanceof VillagerHatItem)
+		{
+			if(entity.isSneaking())
+			{
+				RenderSystem.translatef(0, 0.250F, 0);
+			}
+
+			VillagerHatModel<T> hatModel = new VillagerHatModel<>(0);
+			((ModelWithHead)this.getContextModel()).getHead().rotate(matrices);
+
+			VertexConsumer vertexConsumer = vertexConsumers.getBuffer(hatModel.getLayer(this.getTexture(entity)));
+			hatModel.render(matrices, vertexConsumer, light, OverlayTexture.DEFAULT_UV, 1F, 1F, 1F, 1F);
+
+			if(entity.isSneaking())
+				RenderSystem.translatef(0, -0.25F, 0F);
+		}
+	}
+
 	private Identifier findTexture(String string_1, Identifier identifier_1) {
 		return new Identifier(identifier_1.getNamespace(), "textures/entity/villager/"+ string_1 + "/" + identifier_1.getPath() + ".png");
 	}
 
 	@Override
-	public void render(T living, float x, float y, float z, float float_4, float float_5, float float_6, float delta)
+	protected Identifier getTexture(T entity)
 	{
-		if(!living.getEquippedStack(EquipmentSlot.HEAD).isEmpty() && living.getEquippedStack(EquipmentSlot.HEAD).getItem() instanceof VillagerHatItem)
+		if(!entity.getEquippedStack(EquipmentSlot.HEAD).isEmpty() && entity.getEquippedStack(EquipmentSlot.HEAD).getItem() instanceof VillagerHatItem)
 		{
-			VillagerHatItem hat = (VillagerHatItem) living.getEquippedStack(EquipmentSlot.HEAD).getItem();
-			GlStateManager.scalef(1.01F, 1.01F, 1.01F);
-
-			if(living.isSneaking())
-			{
-				GlStateManager.translated(0, 0.250D, 0);
-			}
-
-			VillagerHatModel<T> hatModel = new VillagerHatModel<>(0);
-
-			this.bindTexture(this.findTexture("profession", Registry.VILLAGER_PROFESSION.getId(hat.getProfession())));
-
-			hatModel.render(living, x, y, float_4, float_5, float_6, delta);
-			GlStateManager.translatef(0, 0, 0F);
-			GlStateManager.scalef(1F, 1F, 1F);
+			VillagerHatItem hat = (VillagerHatItem) entity.getEquippedStack(EquipmentSlot.HEAD).getItem();
+			return this.findTexture("profession", Registry.VILLAGER_PROFESSION.getId(hat.getProfession()));
 		}
-	}
-
-	@Override
-	public boolean hasHurtOverlay()
-	{
-		return false;
+		return super.getTexture(entity);
 	}
 }

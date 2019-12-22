@@ -13,21 +13,15 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import party.lemons.villagerhats.client.PlayerVillagerHatRenderLayer;
 
 @Mixin(ArmorStandEntityRenderer.class)
-public class ArmorStandRenderMixin extends LivingEntityRenderer<ArmorStandEntity, ArmorStandEntityModel> {
-    public ArmorStandRenderMixin(EntityRenderDispatcher entityRenderDispatcher_1, ArmorStandEntityModel entityModel_1, float float_1)
+public abstract class ArmorStandRenderMixin extends LivingEntityRenderer<ArmorStandEntity, ArmorStandEntityModel> {
+    public ArmorStandRenderMixin(EntityRenderDispatcher entityRenderDispatcher, ArmorStandEntityModel model, float shadowSize)
     {
-        super(entityRenderDispatcher_1, entityModel_1, float_1);
+        super(entityRenderDispatcher, model, shadowSize);
     }
 
     @Inject(at = @At("RETURN"), method = "<init>")
     public void onConstruct(EntityRenderDispatcher dispatcher, CallbackInfo info)
     {
         this.addFeature(new PlayerVillagerHatRenderLayer<>(this));
-    }
-
-    @Override
-    protected Identifier getTexture(ArmorStandEntity armorStandEntity)
-    {
-        return null;
     }
 }
