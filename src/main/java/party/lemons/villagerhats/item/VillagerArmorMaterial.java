@@ -51,4 +51,10 @@ public class VillagerArmorMaterial implements ArmorMaterial
 	{
 		return 0;
 	}
+
+	@Override
+	public float getKnockbackResistance()
+	{
+		return 0;
+	}
 }
