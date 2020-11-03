@@ -8,7 +8,6 @@ import net.minecraft.client.render.entity.model.ModelWithHead;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.decoration.ArmorStandEntity;
-import net.minecraft.entity.passive.AbstractTraderEntity;
 import net.minecraft.util.math.MathHelper;
 
 public class VillagerHatModel<T extends Entity> extends EntityModel<T> implements ModelWithHead, ModelWithHat {
