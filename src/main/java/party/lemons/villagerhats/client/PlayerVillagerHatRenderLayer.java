@@ -27,6 +27,7 @@ public class PlayerVillagerHatRenderLayer<T extends LivingEntity, M extends Enti
 	{
 		if(!entity.getEquippedStack(EquipmentSlot.HEAD).isEmpty() && entity.getEquippedStack(EquipmentSlot.HEAD).getItem() instanceof VillagerHatItem)
 		{
+			matrices.push();
 			if(entity.isSneaking())
 			{
 				RenderSystem.translatef(0, 0.250F, 0);
@@ -40,6 +41,7 @@ public class PlayerVillagerHatRenderLayer<T extends LivingEntity, M extends Enti
 
 			if(entity.isSneaking())
 				RenderSystem.translatef(0, -0.25F, 0F);
+			matrices.pop();
 		}
 	}
 
