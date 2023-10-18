@@ -2,12 +2,14 @@ package party.lemons.villagerhats.client;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import net.minecraft.client.render.OverlayTexture;
+import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.entity.feature.FeatureRenderer;
 import net.minecraft.client.render.entity.feature.FeatureRendererContext;
 import net.minecraft.client.render.entity.model.EntityModel;
 import net.minecraft.client.render.entity.model.ModelWithHead;
+import net.minecraft.client.render.item.ItemRenderer;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
@@ -36,7 +38,7 @@ public class PlayerVillagerHatRenderLayer<T extends LivingEntity, M extends Enti
 			VillagerHatModel<T> hatModel = new VillagerHatModel<>(0);
 			((ModelWithHead)this.getContextModel()).getHead().rotate(matrices);
 
-			VertexConsumer vertexConsumer = vertexConsumers.getBuffer(hatModel.getLayer(this.getTexture(entity)));
+			VertexConsumer vertexConsumer = ItemRenderer.getArmorGlintConsumer(vertexConsumers, RenderLayer.getArmorCutoutNoCull(this.getTexture(entity)), false, entity.getEquippedStack(EquipmentSlot.HEAD).hasGlint());
 			hatModel.render(matrices, vertexConsumer, light, OverlayTexture.DEFAULT_UV, 1F, 1F, 1F, 1F);
 
 			if(entity.isSneaking())
